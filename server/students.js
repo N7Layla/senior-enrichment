@@ -15,4 +15,14 @@ router.get('/:studentId', (req, res, next) => {
   .catch(next)
 })
 
+// add student
+router.post('/', (req, res, next) => {
+  Student.create({
+    where: {name: req.body.name,
+            email: req.body.email,
+            campusId: req.body.campusId}
+  }).then(student => res.json(student))
+  .catch(next)
+})
+
 module.exports = router;

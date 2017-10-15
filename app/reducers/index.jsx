@@ -1,11 +1,25 @@
 import { combineReducers } from 'redux'
 
-const initialState = {}
+const initialState = {
+  campuses: [],
+  students: [],
+  newCampus: '',
+  newStudent: ''
+}
 
-const rootReducer = function(state = initialState, action) {
+// const rootReducer = function(state = initialState, action) {
+//   switch (action.type) {
+//     default: return state
+//   }
+// };
+
+const reducer = function(state = initialState, action) {
   switch (action.type) {
-    default: return state
+    case 'GET_CAMPUSES':
+      return Object.assign({}, state, { campuses: action.campuses })
+    default:
+      return state
   }
 };
 
-export default rootReducer
+export default reducer;

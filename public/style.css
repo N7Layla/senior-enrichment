@@ -1,0 +1,9 @@
+body {
+  letter-spacing: 1px;
+}
+
+.nav {
+  font-size: 30px;
+  font-weight: bold;
+  font-color: pink;
+}
