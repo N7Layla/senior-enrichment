@@ -6,8 +6,9 @@ import axios from 'axios';
 
 export default createStore(reducer, applyMiddleware(thunkMiddleware, createLogger()))
 
-
+//actions
 const GET_CAMPUSES = 'GET_CAMPUSES';
+const GET_STUDENTS = 'GET_STUDENTS';
 
 export function getCampuses (campuses) {
   return {
@@ -16,6 +17,14 @@ export function getCampuses (campuses) {
   }
 }
 
+export function getStudents (students) {
+  return {
+    type: GET_STUDENTS,
+    students
+  }
+}
+
+//thunks
 export function fetchCampuses () {
   return function thunk (dispatch) {
     return axios.get('/api/campuses')
@@ -24,5 +33,16 @@ export function fetchCampuses () {
         const action = getCampuses(campuses);
         dispatch(action);
       });
+  }
+}
+
+export function fetchStudents () {
+  return function thunk (dispatch) {
+    return axios.get('/api/students')
+    .then(res => res.data)
+    .then(students => {
+      const action = getStudents(students);
+      dispatch(action);
+    })
   }
 }

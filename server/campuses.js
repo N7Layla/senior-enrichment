@@ -18,7 +18,7 @@ router.get('/:campusId', (req, res, next) => {
 // students by campus
 router.get('/:campusId/students', (req, res, next) => {
   Student.findAll({
-    where: {id: req.params.campusId}
+    where: {campusId: req.params.campusId}
   }).then(students => res.json(students))
   .catch(next)
 })

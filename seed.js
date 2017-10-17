@@ -21,7 +21,7 @@ const campuses = [{
   }
 ];
 
-var campusId = Math.floor(Math.random() * campuses.length) + 1;
+var campusId = () => {return Math.floor(Math.random() * campuses.length) + 1};
 
 const students = [{
   name: 'Cody',
