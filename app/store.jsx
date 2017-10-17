@@ -9,6 +9,7 @@ export default createStore(reducer, applyMiddleware(thunkMiddleware, createLogge
 //actions
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const GET_STUDENTS = 'GET_STUDENTS';
+const ADD_CAMPUS = 'ADD_CAMPUS';
 
 export function getCampuses (campuses) {
   return {
@@ -21,6 +22,13 @@ export function getStudents (students) {
   return {
     type: GET_STUDENTS,
     students
+  }
+}
+
+export function addCampus (campus) {
+  return {
+    type: ADD_CAMPUS,
+    campus
   }
 }
 
@@ -42,6 +50,18 @@ export function fetchStudents () {
     .then(res => res.data)
     .then(students => {
       const action = getStudents(students);
+      dispatch(action);
+    })
+  }
+}
+
+
+export function submitCampus () {
+  return function thunk (dispatch) {
+    return axios.post('/api/campuses')
+    .then(res => res.data)
+    .then(campus => {
+      const action = addCampus(campus);
       dispatch(action);
     })
   }

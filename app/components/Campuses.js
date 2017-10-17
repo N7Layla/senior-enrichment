@@ -1,10 +1,12 @@
 import React, { Component} from 'react';
 import store from '../store';
+import NewCampus from './NewCampus';
 
 export default class Campuses extends Component {
   constructor() {
     super()
     this.state = store.getState()
+    this.submitCampus = this.submitCampus.bind(this);
   }
 
   componentDidMount () {
@@ -13,6 +15,10 @@ export default class Campuses extends Component {
 
   componentWillUnmount () {
     this.unsubscribe();
+  }
+
+  submitCampus (campus) {
+    store.submitCampus(campus);
   }
 
   render() {
@@ -27,12 +33,13 @@ export default class Campuses extends Component {
         Students:
         <ul className="campus-students">{
           this.state.students.map(student =>
-            (campus.id === student.campusId ? <li>{student.name}</li> : '')
+            (campus.id === student.campusId ? <li key={student.id}>{student.name}</li> : '')
           )
         }</ul>
         </div>)
         )
       }
+      <div className="addCampus"><NewCampus submitCampus={this.submitCampus} /></div>
       </div>
     )
   }

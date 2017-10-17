@@ -2,9 +2,7 @@
 
 const initialState = {
   campuses: [],
-  students: [],
-  newCampus: '',
-  newStudent: ''
+  students: []
 }
 
 // const rootReducer = function(state = initialState, action) {
@@ -19,6 +17,8 @@ const reducer = function(state = initialState, action) {
       return Object.assign({}, state, { campuses: action.campuses })
     case 'GET_STUDENTS':
       return Object.assign({}, state, { students: action.students })
+    case 'ADD_CAMPUS':
+      return [action.campus, ...state.campuses];
     default:
       return state
   }

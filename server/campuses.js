@@ -25,18 +25,15 @@ router.get('/:campusId/students', (req, res, next) => {
 
 // add campus
 router.post('/', (req, res, next) => {
-  Campus.create({
-    where: {name: req.body.name,
-            description: req.body.description,
-            image: req.body.image
-    }
-  }).then(campus => res.json(campus))
+  Campus.create(req.body)
+  .then(campus => res.json(campus))
   .catch(next)
 })
 
+
 // remove campus
 router.delete('/:campusId', (req, res, next) => {
-  Campus.delete({
+  Campus.destroy({
     where: {id: req.params.campusId}
   }).then(() => res.status(204).end())
   .catch(next)
