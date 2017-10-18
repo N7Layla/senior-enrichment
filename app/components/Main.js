@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 import Navbar from './Navbar';
 import Campuses from './Campuses';
 import Students from './Students';
-import store, { fetchCampuses, fetchStudents, submitCampus } from '../store';
+import { fetchCampuses, submitCampus } from '../reducers/campuses';
+import { fetchStudents } from '../reducers/students';
+import { connect } from 'react-redux';
+import store from '../store';
 
-export default class Main extends Component {
+export class Main extends Component {
 
   componentDidMount () {
-    const campusesThunk = fetchCampuses();
-    const studentsThunk = fetchStudents();
-    store.dispatch(campusesThunk);
-    store.dispatch(studentsThunk);
+    this.props.fetchInitialData();
   }
 
   render () {
@@ -19,14 +20,25 @@ export default class Main extends Component {
       <div>
         <Navbar />
         <main>
-        <BrowserRouter>
           <Switch>
-            <Route path="/campuses" submitCampus={submitCampus} component={Campuses}  />
+            <Route path="/campuses" component={Campuses}  />
             <Route path="/students" component={Students} />
+            <Route component={Home} />
           </Switch>
-          </BrowserRouter>
         </main>
       </div>
     );
   }
 }
+
+
+const mapProps = null;
+
+const mapDispatch = dispatch => ({
+  fetchInitialData: () => {
+    store.dispatch(fetchCampuses());
+    store.dispatch(fetchStudents());
+  }
+});
+
+export default connect(mapProps, mapDispatch)(Main);

@@ -6,7 +6,6 @@ export default class Campuses extends Component {
   constructor() {
     super()
     this.state = store.getState()
-    this.submitCampus = this.submitCampus.bind(this);
   }
 
   componentDidMount () {
@@ -15,10 +14,6 @@ export default class Campuses extends Component {
 
   componentWillUnmount () {
     this.unsubscribe();
-  }
-
-  submitCampus (campus) {
-    this.props.submitCampus(campus);
   }
 
   render() {
@@ -39,7 +34,7 @@ export default class Campuses extends Component {
         </div>)
         )
       }
-      <div className="addCampus"><NewCampus submitCampus={this.submitCampus} /></div>
+      <div className="addCampus"><NewCampus /></div>
       </div>
     )
   }

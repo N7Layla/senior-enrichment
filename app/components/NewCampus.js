@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { submitCampus } from '../reducers/campuses';
+import { connect } from 'react-redux';
 //import store from '../store';
 
-export default class NewCampus extends Component {
-  render() {
+export function NewCampus(props) {
   return (
     <form onSubmit={evt => {
       evt.preventDefault()
-      this.props.submitCampus(evt.target.value)}
+      const campus = {
+        name: evt.target.name.value,
+        description: evt.target.description.value,
+        image: evt.target.image.value
+      }
+      props.submitCampus(campus)}
     }>
       <label>Campus Name: </label>
         <input type="text" name="name" />
@@ -16,5 +22,11 @@ export default class NewCampus extends Component {
         <input type="text" name="image" />
        <input type="submit" value="Submit" />
     </form>
-  )}
+  )
 }
+
+const mapProps = null;
+
+const mapDispatch = { submitCampus };
+
+export default connect(mapProps, mapDispatch)(NewCampus);
