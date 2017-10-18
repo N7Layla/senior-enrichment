@@ -1,0 +1,101 @@
+body {
+  letter-spacing: 1px;
+}
+
+h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.nav {
+  background-color: #000000;
+  width: 100vw;
+/*  height: auto;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*padding: 1em;*/
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+}
+
+#title {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  padding: 1em;
+}
+
+#links {
+  font-size: 15px;
+  color: white;
+  padding: 1em;
+  margin-right: 2em;
+}
+
+
+.campusContainer {
+  display: flex;
+  /*flex-basis: 100%;*/
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: .5em;
+}
+
+.campus {
+  margin: 1em;
+  /*flex-basis: 100%;*/
+  justify-content: : left;
+  padding: .5em;
+  /*text-align: center;*/
+}
+
+.addCampus {
+  margin: 1em;
+  margin-top: 6em;
+  padding: .5em;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/*.studentsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  margin: 2em;
+  margin-top: 5em;
+  justify-content: center;
+  align-items: center;
+}*/
+
+#studentsContainer > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: light grey;
+}
+
+.student-info {
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.student-name {
+  background-color: pink;
+  padding: 2em;
+}
+
+.student-email {
+  background-color: #f0f0f0;
+}
