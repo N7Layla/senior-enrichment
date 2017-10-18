@@ -22,7 +22,7 @@ export default function reducer (campuses = [], action) {
     case GET_CAMPUSES:
       return action.campuses
     case ADD_CAMPUS:
-      return [action.campus, ...campuses]
+      return [...campuses, action.campus]
     default:
       return campuses
   }

@@ -5,14 +5,17 @@ import { connect } from 'react-redux';
 
 export function NewCampus(props) {
   return (
-    <form onSubmit={evt => {
+    <form
+      id="add-campus-form"
+      onSubmit={evt => {
       evt.preventDefault()
       const campus = {
         name: evt.target.name.value,
         description: evt.target.description.value,
         image: evt.target.image.value
       }
-      props.submitCampus(campus)}
+      props.submitCampus(campus)
+      document.getElementById('add-campus-form').reset()}
     }>
       <label>Campus Name: </label>
         <input type="text" name="name" />

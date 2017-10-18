@@ -39,24 +39,24 @@ h2 {
 
 .campusContainer {
   display: flex;
-  flex-basis: 100%;
+  /*flex-basis: 100%;*/
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   padding: .5em;
-  margin-top: 5em;
 }
 
 .campus {
   margin: 1em;
-  flex-basis: 100%;
-  justify-content: : center;
-  align-items: center;
+  /*flex-basis: 100%;*/
+  justify-content: : left;
   padding: .5em;
   /*text-align: center;*/
 }
 
 .addCampus {
   margin: 1em;
+  margin-top: 6em;
   padding: .5em;
 }
 

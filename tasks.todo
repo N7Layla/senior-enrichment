@@ -1,0 +1,25 @@
+Functionality:
+  ☐ View single campus (with students)
+  ☐ View single student
+  ☐ Add new student form
+  ☐ Edit student form
+  ☐ Edit student button
+  ☐ Edit campus form
+  ☐ Edit campus button
+  ☐ Delete student
+  ☐ Delete campus
+  ☐ Refactor for DRY / clarity
+  ☐ Add comments
+  ☐ Error handling???
+
+Styling:
+  ☐ Image placement
+  ☐ Dynamic transitions
+  ☐ Color scheme
+  ☐ Flex box designs
+  ☐ Fonts
+  ☐ Background images/colors
+
+Extra:
+  ☐ Filter students?
+  ☐ Search?

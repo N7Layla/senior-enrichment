@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import store from '../store';
+import NewStudent from './NewStudent';
 
 export default class Students extends Component {
   constructor() {
@@ -17,6 +18,8 @@ export default class Students extends Component {
 
   render() {
     return (
+    <div>
+    <div className="addCampus"><NewStudent /></div>
      <section id="studentsContainer">
       <h2>Students:</h2>
       {
@@ -34,6 +37,7 @@ export default class Students extends Component {
         )
       }
      </section>
+     </div>
     )
   }
 }

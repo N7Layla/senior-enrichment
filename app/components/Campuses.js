@@ -18,24 +18,26 @@ export default class Campuses extends Component {
 
   render() {
     return (
-      <div className="campusContainer">
-      {
-        this.state.campuses.map(campus =>
-        (<div className="campus" key={campus.id}><h2>{campus.name}</h2>
-        <hr />
-        {campus.description}<br />
-        <img width="100px" src={campus.image} /><br />
-        Students:
-        <ul className="campus-students">{
-          this.state.students.map(student =>
-            (campus.id === student.campusId ? <li key={student.id}>{student.name}</li> : '')
-          )
-        }</ul>
-        </div>)
-        )
-      }
-      <div className="addCampus"><NewCampus /></div>
-      </div>
+      <div>
+        <div className="addCampus"><NewCampus /></div>
+          <div className="campusContainer">
+          {
+            this.state.campuses.map(campus =>
+            (<div className="campus" key={campus.id}><h2>{campus.name}</h2>
+            <hr />
+            {campus.description}<br />
+            <img width="100px" src={campus.image} /><br />
+            Students:
+            <ul className="campus-students">{
+              this.state.students.map(student =>
+                (campus.id === student.campusId ? <li key={student.id}>{student.name}</li> : '')
+              )
+            }</ul>
+            </div>)
+            )
+          }
+          </div>
+        </div>
     )
   }
 }
