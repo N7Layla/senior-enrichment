@@ -30,6 +30,14 @@ router.post('/', (req, res, next) => {
   .catch(next)
 })
 
+// update campus
+router.put('/:campusId', (req, res, next) => {
+  Campus.findById(req.params.campusId)
+  .then(campus => campus.update(req.body))
+  .then(campus => res.json(campus))
+  .catch(next)
+})
+
 
 // remove campus
 router.delete('/:campusId', (req, res, next) => {

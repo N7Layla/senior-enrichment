@@ -18,7 +18,7 @@ export default class Campuses extends Component {
   }
 
   submitCampus (campus) {
-    store.submitCampus(campus);
+    this.props.submitCampus(campus);
   }
 
   render() {

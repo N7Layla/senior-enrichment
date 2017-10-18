@@ -17,12 +17,26 @@ router.get('/:studentId', (req, res, next) => {
 
 // add student
 router.post('/', (req, res, next) => {
-  Student.create({
-    where: {name: req.body.name,
-            email: req.body.email,
-            campusId: req.body.campusId}
-  }).then(student => res.json(student))
+  Student.create(req.body)
+  .then(student => res.json(student))
   .catch(next)
 })
+
+//update student
+router.put('/:studentId', (req, res, next) => {
+  Student.findById(req.params.studentId)
+  .then(student => student.update(req.body))
+  .then(student => res.json(student))
+  .catch(next)
+})
+
+// remove student
+router.delete('/:studentId', (req, res, next) => {
+  Student.destroy({
+    where: {id: req.params.studentId}
+  }).then(() => res.status(204).end())
+  .catch(next)
+})
+
 
 module.exports = router;

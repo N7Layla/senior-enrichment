@@ -3,7 +3,7 @@ import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
 import Navbar from './Navbar';
 import Campuses from './Campuses';
 import Students from './Students';
-import store, { fetchCampuses, fetchStudents } from '../store';
+import store, { fetchCampuses, fetchStudents, submitCampus } from '../store';
 
 export default class Main extends Component {
 
@@ -21,7 +21,7 @@ export default class Main extends Component {
         <main>
         <BrowserRouter>
           <Switch>
-            <Route path="/campuses" component={Campuses} />
+            <Route path="/campuses" submitCampus={submitCampus} component={Campuses}  />
             <Route path="/students" component={Students} />
           </Switch>
           </BrowserRouter>
