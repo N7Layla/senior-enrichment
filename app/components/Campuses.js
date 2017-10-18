@@ -1,21 +1,13 @@
 import React, { Component} from 'react';
 import store from '../store';
+import { connect } from 'react-redux';
+import _ from 'lodash';
 import NewCampus from './NewCampus';
+import SingleCampus from './SingleCampus';
 import { NavLink } from 'react-router-dom';
+//import { removeCampus } from '../reducers/campuses';
 
-export default class Campuses extends Component {
-  constructor() {
-    super()
-    this.state = store.getState()
-  }
-
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()));
-  }
-
-  componentWillUnmount () {
-    this.unsubscribe();
-  }
+export class Campuses extends Component {
 
   render() {
     return (
@@ -23,21 +15,13 @@ export default class Campuses extends Component {
         <div className="addCampus"><NewCampus /></div>
           <div className="campusContainer">
           {
-            this.state.campuses.map(campus =>
+            this.props.campuses.map(campus =>
             (<div className="campus" key={campus.id}>
              <NavLink
-            className="campus-link"
-            activeClassName="active"
-            to={`/campuses/${campus.id}`}><h2>{campus.name}</h2></NavLink>
-            <hr />
-            {campus.description}<br />
-            <img width="100px" src={campus.image} /><br />
-            Students:
-            <ul className="campus-students">{
-              this.state.students.map(student =>
-                (campus.id === student.campusId ? <li key={student.id}>{student.name}</li> : '')
-              )
-            }</ul>
+              className="campus-link"
+              activeClassName="active"
+              to={`/campuses/${campus.id}`}><h2>{campus.name}</h2></NavLink>
+              <SingleCampus campus={campus} students={this.props.students} />
             </div>)
             )
           }
@@ -46,3 +30,15 @@ export default class Campuses extends Component {
     )
   }
 }
+
+const mapState = ({ campuses, students }) => ({ campuses, students });
+// const mapState = ({campuses}, ownProps) => {
+//   const paramId = Number(ownProps.match.params.id);
+//   return {
+//     campus: _.find(campuses, campus => campus.id === paramId)
+//   }
+// }
+
+const mapDispatch = {}
+
+export default connect(mapState, mapDispatch)(Campuses);

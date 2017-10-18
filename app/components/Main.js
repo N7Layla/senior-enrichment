@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Campuses from './Campuses';
 import Students from './Students';
 import SingleCampus from './SingleCampus';
+import CampusDetail from './CampusDetail';
 import { fetchCampuses } from '../reducers/campuses';
 import { fetchStudents } from '../reducers/students';
 import { connect } from 'react-redux';
@@ -24,7 +25,7 @@ export class Main extends Component {
           <Switch>
             <Route exact path="/campuses" component={Campuses}  />
             <Route exact path="/students" component={Students} />
-            <Route path="/campuses/:id" component={SingleCampus} />
+            <Route path="/campuses/:id" component={CampusDetail} />
             <Route component={Home} />
           </Switch>
         </main>
@@ -38,8 +39,8 @@ const mapProps = null;
 
 const mapDispatch = dispatch => ({
   fetchInitialData: () => {
-    store.dispatch(fetchCampuses());
-    store.dispatch(fetchStudents());
+    dispatch(fetchCampuses());
+    dispatch(fetchStudents());
   }
 });
 
