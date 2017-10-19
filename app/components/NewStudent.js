@@ -10,21 +10,30 @@ export function NewStudent(props) {
       evt.preventDefault()
       const student = {
         name: evt.target.name.value,
-        email: evt.target.email.value
+        email: evt.target.email.value,
+        campusId: evt.target.campus.value
       }
       props.submitStudent(student)
       document.getElementById('add-student-form').reset()}
     }>
       <label>Student Name: </label>
-        <input type="text" name="name" />
+        <input required type="text" name="name" />
         <label>Student Email: </label>
-        <input type="text" name="email" />
+        <input required type="text" name="email" />
+        <label>Student Campus: </label>
+        <select required name="campus">
+        {
+          props.campuses.map(campus =>
+            <option key={campus.id} value={campus.id}>{campus.name}</option>
+          )
+        }
+          </select>
        <input type="submit" value="Submit" />
     </form>
   )
 }
 
-const mapProps = null;
+const mapProps = ({ campuses }) => ({ campuses });
 
 const mapDispatch = { submitStudent };
 

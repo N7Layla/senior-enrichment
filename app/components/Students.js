@@ -1,39 +1,36 @@
 import React, { Component} from 'react';
 import store from '../store';
 import NewStudent from './NewStudent';
+import { deleteStudent } from '../reducers/students';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-export default class Students extends Component {
-  constructor() {
-    super()
-    this.state = store.getState()
-  }
-
-  componentDidMount () {
-    this.unsubscribe = store.subscribe(() => this.setState(store.getState()));
-  }
-
-  componentWillUnmount () {
-    this.unsubscribe();
-  }
-
+export class Students extends Component {
   render() {
+  const students = this.props.students;
+  const campuses = this.props.campuses;
     return (
     <div>
     <div className="addCampus"><NewStudent /></div>
      <section id="studentsContainer">
       <h2>Students:</h2>
       {
-        this.state.students.map(student =>
+        students.map(student =>
         (<div key={student.id}>
         <div className="student-info">
-        <h3 className="student-name">{student.name}</h3>
+        <Link to={`/students/${student.id}`}><h3 className="student-name">{student.name}</h3></Link>
         <p className="student-email">{student.email}</p>
         <p className="student-campus">{
-          this.state.campuses.map(campus =>
+          campuses.map(campus =>
             (campus.id === student.campusId ? campus.name : '')
           )
         }</p>
-        </div></div>)
+        <p><button
+        onClick={() => this.props.deleteStudent(student.id)}
+        className="btn btn-default">X
+       </button></p>
+        </div></div>
+        )
         )
       }
      </section>
@@ -41,3 +38,9 @@ export default class Students extends Component {
     )
   }
 }
+
+const mapState = ({students, campuses}) => ({students, campuses});
+
+const mapDispatch = { deleteStudent };
+
+export default connect(mapState, mapDispatch)(Students);

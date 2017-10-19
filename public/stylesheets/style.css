@@ -54,6 +54,14 @@ h2 {
   /*text-align: center;*/
 }
 
+.single-campus {
+  margin-top: 6em;
+}
+
+.campus-link a {
+  text-decoration: none;
+}
+
 .addCampus {
   margin: 1em;
   margin-top: 6em;
@@ -93,9 +101,12 @@ hr {
 
 .student-name {
   background-color: pink;
-  padding: 2em;
 }
 
 .student-email {
   background-color: #f0f0f0;
+}
+
+.single-student {
+  margin-top: 6em;
 }

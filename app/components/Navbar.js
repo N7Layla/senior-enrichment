@@ -6,7 +6,7 @@ export default function Navbar() {
     <div className="nav">
       <div id="title">Margaret Hamilton Interplanetary Academy of JavaScript</div>
       <div id="links">
-      Campuses / Students</div>
+      <NavLink to="/campuses">Campuses</NavLink> / <NavLink to="/students">Students</NavLink></div>
       </div>
   )
 }

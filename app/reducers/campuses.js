@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const GET_CAMPUSES = 'GET_CAMPUSES';
 const ADD_CAMPUS = 'ADD_CAMPUS';
-//const DELETE_CAMPUS = 'DELETE_CAMPUS';
+const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
+const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 
 export function getCampuses (campuses) {
   return {
@@ -18,12 +19,19 @@ export function addCampus (campus) {
   }
 }
 
-// export function deleteCampus (campusId) {
-//   return {
-//     type: DELETE_CAMPUS,
-//     campusId
-//   }
-// }
+export function updateCampus (campus) {
+  return {
+    type: UPDATE_CAMPUS,
+    campus
+  }
+}
+
+export function removeCampus (campusId) {
+  return {
+    type: REMOVE_CAMPUS,
+    campusId
+  }
+}
 
 export default function reducer (campuses = [], action) {
   switch (action.type) {
@@ -31,8 +39,12 @@ export default function reducer (campuses = [], action) {
       return action.campuses
     case ADD_CAMPUS:
       return [...campuses, action.campus]
-    // case DELETE_CAMPUS:
-    //   return campuses.filter(campus => campus.id !== action.campusId)
+    case UPDATE_CAMPUS:
+      return campuses.map(campus => (
+        action.campus.id === campus.id ? action.campus : campus
+      ))
+    case REMOVE_CAMPUS:
+      return campuses.filter(campus => campus.id !== action.campusId)
     default:
       return campuses
   }
@@ -59,8 +71,14 @@ export const submitCampus = campus => dispatch => {
          .catch(err => console.error('Unable to add campus', err))
 }
 
-// export const removeCampus = id => dispatch => {
-//   axios.delete(`/api/campuses/${id}`)
-//   .then(() => dispatch(deleteCampus(id);)
-//   .catch(err => console.error('Unable to remove campus', err))
-// }
+export const deleteCampus = campusId => dispatch => {
+  axios.delete(`/api/campuses/${campusId}`, campusId)
+        .then(() => dispatch(removeCampus(campusId)))
+        .catch(err => console.error('Unable to remove student', err))
+}
+
+export const editCampus = (id, campus) => dispatch => {
+  axios.put(`/api/campuses/${id}`, campus)
+      .then(res => dispatch(updateCampus(res.data)))
+      .catch(err => console.error('Unable to update', err))
+}
