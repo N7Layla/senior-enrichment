@@ -2,18 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import EditStudent from './EditStudent';
+import { NavLink, withRouter } from 'react-router-dom';
 
 export function SingleStudent(props) {
   const student = props.student;
   const campuses = props.campuses;
-  console.log("CAMPUSES=", campuses)
   return (
     <div className="single-student">
     <h2>{student.name}</h2>
     <p>{student.email}</p>
     <p>{
-          campuses.map(campus =>
-            (campus.id === student.campusId ? campus.name : '')
+        campuses.map(campus =>
+         (campus.id === student.campusId ? <NavLink key={campus.id} to={`/campuses/${campus.id}`}>{campus.name}</NavLink> : '')
           )
         }</p>
     <EditStudent student={student} />
@@ -31,4 +31,4 @@ const mapState = ({campuses, students}, ownProps) => {
 
 const mapDispatch = {};
 
-export default connect(mapState, mapDispatch)(SingleStudent);
+export default withRouter(connect(mapState, mapDispatch)(SingleStudent));

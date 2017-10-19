@@ -6,6 +6,7 @@ export function EditCampus(props) {
    let campus = props.campus
     return (
       <div>
+      <h3>Edit Campus</h3>
       <form
         id="edit-campus-form"
         onSubmit={evt => {

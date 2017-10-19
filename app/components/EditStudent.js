@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { editStudent } from '../reducers/students';
 
-export class EditStudent extends Component {
-  render() {
-   let student = this.props.student
-   let campuses = this.props.campuses
+export function EditStudent(props) {
+   let student = props.student
+   let campuses = props.campuses
   return (
     <div>
+    <h3>Edit Student</h3>
     <form
       id="edit-student-form"
       onSubmit={evt => {
@@ -33,7 +33,6 @@ export class EditStudent extends Component {
     </form>
     </div>
   )
-  }
 }
 
 const mapState = ({students, campuses}) => ({students, campuses})

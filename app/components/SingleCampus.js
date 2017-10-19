@@ -1,44 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Link, NavLink, Route } from 'react-router-dom';
-import CampusDetail from './CampusDetail';
+import { NavLink, withRouter } from 'react-router-dom';
 import { deleteCampus } from '../reducers/campuses';
-import _ from 'lodash';
+import { deleteStudent } from '../reducers/students';
 
-export class SingleCampus extends Component {
-  render() {
-    console.log("PROPS", this.props)
-    const campus = this.props.campus;
-    //const id = this.props.campusId;
-    //const paramId = this.props.match.params.id || this.props.campus.id;
-    //const campuses = this.props.campuses;
+export function SingleCampus(props) {
+    const campus = props.campus;
     return (
     <div>
-    <Link
+    <NavLink
       className="campus-link"
-      to={`/campuses/${campus.id}`}><h2>{campus.name}</h2></Link>
+      to={`/campuses/${campus.id}`}><h2>{campus.name}</h2></NavLink>
         <hr />
     {campus.description}<br />
-    <img width="100px" src={campus.image} /><br />
-    <button
-       className="btn btn-default">Students
-       </button> <button
-        onClick={() => this.props.deleteCampus(campus.id)}
-        className="btn btn-default">X
+    <img width="100px" src={campus.image} />
+     <button
+        onClick={() => props.deleteCampus(campus.id)}
+        className="btn btn-default">DELETE CAMPUS
        </button>
       </div>
     )
-  }
 }
 
-const mapState = ({ campuses }) => ({ campuses });
-// const mapState = ({campuses}, ownProps) => {
-//   const paramId = Number(ownProps.match.params.id);
-//   return {
-//     campus: _.find(campuses, campus => campus.id === paramId)
-//   }
-// }
+const mapState = ({ students, campuses }) => ({ students, campuses });
 
-const mapDispatch = { deleteCampus };
+const mapDispatch = { deleteCampus, deleteStudent };
 
-export default connect(mapState, mapDispatch)(SingleCampus);
+export default withRouter(connect(mapState, mapDispatch)(SingleCampus));

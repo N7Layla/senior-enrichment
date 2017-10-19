@@ -50,22 +50,26 @@ export default function reducer (students = [], action) {
   }
 }
 
-export function fetchStudents () {
-  return function thunk (dispatch) {
-    return axios.get('/api/students')
-    .then(res => res.data)
-    .then(students => {
-      const action = getStudents(students);
-      dispatch(action);
-    })
-  }
+// export function fetchStudents () {
+//   return function thunk (dispatch) {
+//     return axios.get('/api/students')
+//     .then(res => res.data)
+//     .then(students => {
+//       const action = getStudents(students);
+//       dispatch(action);
+//     })
+//   }
+// }
+
+export const fetchStudents = () => dispatch => {
+  axios.get('/api/students')
+  .then(res => dispatch(getStudents(res.data)))
+  .catch(err => console.error('Unable to get students', err))
 }
 
 export const submitStudent = student => dispatch => {
     axios.post('/api/students', student)
-         .then(res => {
-          dispatch(addStudent(res.data))
-         })
+         .then(res => {dispatch(addStudent(res.data))})
          .catch(err => console.error('Unable to add student', err))
 }
 

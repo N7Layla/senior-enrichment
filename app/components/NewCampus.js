@@ -1,10 +1,11 @@
 import React from 'react';
 import { submitCampus } from '../reducers/campuses';
 import { connect } from 'react-redux';
-//import store from '../store';
 
 export function NewCampus(props) {
   return (
+    <div>
+    <h2>Add A Campus</h2>
     <form
       id="add-campus-form"
       onSubmit={evt => {
@@ -25,6 +26,7 @@ export function NewCampus(props) {
         <input type="text" name="image" />
        <input type="submit" value="Submit" />
     </form>
+    </div>
   )
 }
 

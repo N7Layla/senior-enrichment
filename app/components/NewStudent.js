@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 export function NewStudent(props) {
   return (
+    <div>
+    <h2>Add A Student</h2>
     <form
       id="add-student-form"
       onSubmit={evt => {
@@ -30,6 +32,7 @@ export function NewStudent(props) {
           </select>
        <input type="submit" value="Submit" />
     </form>
+    </div>
   )
 }
 

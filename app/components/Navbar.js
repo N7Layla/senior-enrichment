@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function Navbar() {
+export function Navbar() {
   return (
     <div className="nav">
       <div id="title">Margaret Hamilton Interplanetary Academy of JavaScript</div>
@@ -10,3 +11,5 @@ export default function Navbar() {
       </div>
   )
 }
+
+export default withRouter(connect()(Navbar));

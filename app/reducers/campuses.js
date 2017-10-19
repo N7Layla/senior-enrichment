@@ -51,23 +51,27 @@ export default function reducer (campuses = [], action) {
 }
 
 //thunks
-export function fetchCampuses () {
-  return function thunk (dispatch) {
-    return axios.get('/api/campuses')
-      .then(res => res.data)
-      .then(campuses => {
-        const action = getCampuses(campuses);
-        dispatch(action);
-      });
-  }
+// export function fetchCampuses () {
+//   return function thunk (dispatch) {
+//     return axios.get('/api/campuses')
+//       .then(res => res.data)
+//       .then(campuses => {
+//         const action = getCampuses(campuses);
+//         dispatch(action);
+//       });
+//   }
+// }
+
+export const fetchCampuses = () => dispatch => {
+  axios.get('/api/campuses')
+  .then(res => dispatch(getCampuses(res.data)))
+  .catch(err => console.error('Unable to find campuses', err))
 }
 
 
 export const submitCampus = campus => dispatch => {
     axios.post('/api/campuses', campus)
-         .then(res => {
-          dispatch(addCampus(res.data))
-         })
+         .then(res => {dispatch(addCampus(res.data))})
          .catch(err => console.error('Unable to add campus', err))
 }
 

@@ -1,14 +1,12 @@
-import React, { Component} from 'react';
-import store from '../store';
+import React from 'react';
 import NewStudent from './NewStudent';
 import { deleteStudent } from '../reducers/students';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-export class Students extends Component {
-  render() {
-  const students = this.props.students;
-  const campuses = this.props.campuses;
+export function Students(props) {
+  const students = props.students;
+  const campuses = props.campuses;
     return (
     <div>
     <div className="addCampus"><NewStudent /></div>
@@ -18,7 +16,7 @@ export class Students extends Component {
         students.map(student =>
         (<div key={student.id}>
         <div className="student-info">
-        <Link to={`/students/${student.id}`}><h3 className="student-name">{student.name}</h3></Link>
+        <NavLink to={`/students/${student.id}`}><h3 className="student-name">{student.name}</h3></NavLink>
         <p className="student-email">{student.email}</p>
         <p className="student-campus">{
           campuses.map(campus =>
@@ -26,7 +24,7 @@ export class Students extends Component {
           )
         }</p>
         <p><button
-        onClick={() => this.props.deleteStudent(student.id)}
+        onClick={() => props.deleteStudent(student.id)}
         className="btn btn-default">X
        </button></p>
         </div></div>
@@ -36,11 +34,10 @@ export class Students extends Component {
      </section>
      </div>
     )
-  }
 }
 
 const mapState = ({students, campuses}) => ({students, campuses});
 
 const mapDispatch = { deleteStudent };
 
-export default connect(mapState, mapDispatch)(Students);
+export default withRouter(connect(mapState, mapDispatch)(Students));
