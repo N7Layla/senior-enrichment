@@ -12,8 +12,8 @@ export function SingleCampus(props) {
       className="campus-link"
       to={`/campuses/${campus.id}`}><h2>{campus.name}</h2></NavLink>
         <hr />
-    {campus.description}<br />
-    <img width="100px" src={campus.image} /><br />
+    <img className="campus-image" src={campus.image} /><br />
+    <div className="campus-desc">{campus.description}</div><br />
      <button
         onClick={() => props.deleteCampus(campus.id)}
         className="btn btn-default">DELETE CAMPUS

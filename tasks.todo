@@ -8,14 +8,14 @@ Functionality:
   ✘ Edit campus button @cancelled (17-10-19 12:56)
   ✔ Delete student @done (17-10-19 10:49)
   ✔ Delete campus @done (17-10-19 11:13)
-  ☐ Refactor for DRY / clarity
+  ✘ Refactor for DRY / clarity @cancelled (17-10-20 13:35)
   ☐ Add comments
   ☐ Error handling???
-  ☐ Add content to Home
+  ✔ Add content to Home @done (17-10-20 13:35)
   ☐ Add default images
 
 Troubleshooting:
-  ☐ Fix links refresh
+  ✔ Fix links refresh @done (17-10-20 13:41)
 
 Styling:
   ☐ Image placement

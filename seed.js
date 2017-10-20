@@ -3,76 +3,59 @@ const Campus = require('./db/models/campus');
 const Student = require('./db/models/student');
 
 const campuses = [{
-    name: 'Eos',
-    description: 'Desert climate.',
-    image: '/images/eos.png'
+    name: 'Lunar Lovelace',
+    description: 'Donec placerat velit ac massa elementum ultrices. Integer ut gravida ante. Phasellus cursus finibus dolor sed consequat.',
+    image: '/images/01.png'
    }, {
-    name: 'Aya',
-    description: 'Beautiful forests.',
-    image: '/images/aya.png'
+    name: 'Grace Hopper Harbour',
+    description: 'Donec placerat velit ac massa elementum ultrices. Integer ut gravida ante. Phasellus cursus finibus dolor sed consequat.',
+    image: '/images/02.png'
   }, {
-    name: 'Havarl',
-    description: 'Lush jungles and wildlife.',
-    image: '/images/havarl.png'
-  }, {
-    name: 'Veold',
-    description: 'Icy adventures.',
-    image: '/images/veold.png'
+    name: 'Katherine G-Force Johnson\'s Belt',
+    description: 'Donec placerat velit ac massa elementum ultrices. Integer ut gravida ante. Phasellus cursus finibus dolor sed consequat.',
+    image: '/images/03.png'
   }
 ];
 
 var campusId = () => {return Math.floor(Math.random() * campuses.length) + 1};
 
 const students = [{
-  name: 'Cody',
+  name: 'Starfire',
   campusId: campusId(),
-  email: 'cody@spaceschool.edu'
+  email: 'starfire@spaceschool.edu'
 }, {
-  name: 'Ben',
+  name: 'Wonder Woman',
   campusId: campusId(),
-  email: 'ben@spaceschool.edu'
+  email: 'wonderwoman@spaceschool.edu'
 }, {
-  name: 'Star',
+  name: 'Catwoman',
   campusId: campusId(),
-  email: 'star@spaceschool.edu'
+  email: 'catwoman@spaceschool.edu'
 }, {
-  name: 'Batman',
+  name: 'Batwoman',
   campusId: campusId(),
-  email: 'batman@spaceschool.edu'
+  email: 'batwoman@spaceschool.edu'
 }, {
-  name: 'Elliott',
+  name: 'Poison Ivy',
   campusId: campusId(),
-  email: 'elliott@spaceschool.edu'
+  email: 'poisonivy@spaceschool.edu'
 }, {
-  name: 'Fira',
+  name: 'Katana',
   campusId: campusId(),
-  email: 'fira@spaceschool.edu'
+  email: 'katana@spaceschool.edu'
 }, {
-  name: 'Henry',
+  name: 'Harley Quinn',
   campusId: campusId(),
-  email: 'henry@spaceschool.edu'
+  email: 'harleyquinn@spaceschool.edu'
 }, {
-  name: 'Marcy',
+  name: 'Gwenpool',
   campusId: campusId(),
-  email: 'marcy@spaceschool.edu'
+  email: 'gwenpool@spaceschool.edu'
+}, {
+  name: 'Ms. Marvel',
+  campusId: campusId(),
+  email: 'msmarvel@spaceschool.edu'
 }];
-
-// const id = () => Math.round(Math.random() * (students.length - 1)) + 1;
-
-// const messages = [
-//   { authorId: id(), content: 'I like React!', channelId: 1 },
-//   { authorId: id(), content: 'I like Redux!', channelId: 1 },
-//   { authorId: id(), content: 'I like React-Redux!', channelId: 1 },
-//   { authorId: id(), content: 'I like writing web apps!', channelId: 2 },
-//   { authorId: id(), content: 'You should learn JavaScript!', channelId: 2 },
-//   { authorId: id(), content: 'JavaScript is pretty great!', channelId: 2 },
-//   { authorId: id(), content: 'Dogs are great!', channelId: 3 },
-//   { authorId: id(), content: 'Cats are also great!', channelId: 3 },
-//   { authorId: id(), content: 'Why must we fight so?', channelId: 3 },
-//   { authorId: id(), content: 'I want to get tacos!', channelId: 4 },
-//   { authorId: id(), content: 'I want to get salad!', channelId: 4 },
-//   { authorId: id(), content: 'I want a taco salad!', channelId: 4 }
-// ];
 
 const seed = () =>
   Promise.all(campuses.map(campus =>

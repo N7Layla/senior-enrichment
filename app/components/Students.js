@@ -16,12 +16,12 @@ export function Students(props) {
         (<div key={student.id}>
         <div className="student-info">
         <NavLink to={`/students/${student.id}`}><h3 className="student-name">{student.name}</h3></NavLink>
-        <p className="student-email">{student.email}</p>
-        <p className="student-campus">{
+        <div className="student-email">{student.email}</div>
+        <div className="student-campus">{
           campuses.map(campus =>
-            (campus.id === student.campusId ? campus.name : '')
+            (campus.id === student.campusId ? <NavLink key={campus.id} to={`/campuses/${campus.id}`}>{campus.name}</NavLink> : '')
           )
-        }</p>
+        }</div>
         <p><button
         onClick={() => props.deleteStudent(student.id)}
         className="btn btn-default">X
