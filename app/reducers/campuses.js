@@ -51,16 +51,6 @@ export default function reducer (campuses = [], action) {
 }
 
 //thunks
-// export function fetchCampuses () {
-//   return function thunk (dispatch) {
-//     return axios.get('/api/campuses')
-//       .then(res => res.data)
-//       .then(campuses => {
-//         const action = getCampuses(campuses);
-//         dispatch(action);
-//       });
-//   }
-// }
 
 export const fetchCampuses = () => dispatch => {
   axios.get('/api/campuses')

@@ -50,16 +50,7 @@ export default function reducer (students = [], action) {
   }
 }
 
-// export function fetchStudents () {
-//   return function thunk (dispatch) {
-//     return axios.get('/api/students')
-//     .then(res => res.data)
-//     .then(students => {
-//       const action = getStudents(students);
-//       dispatch(action);
-//     })
-//   }
-// }
+//thunks
 
 export const fetchStudents = () => dispatch => {
   axios.get('/api/students')

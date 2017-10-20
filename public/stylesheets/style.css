@@ -147,13 +147,13 @@ hr {
 #studentsContainer > div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /*justify-content: space-around;*/
 }
 
 .student-info {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -163,6 +163,7 @@ hr {
 
 .student-email {
   background-color: none;
+  justify-content: flex-start;
 }
 
 .single-student {

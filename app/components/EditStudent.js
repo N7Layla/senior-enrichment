@@ -11,10 +11,12 @@ export function EditStudent(props) {
     <form
       id="edit-student-form"
       onSubmit={evt => {
-      student.name = evt.target.name.value
-      student.email = evt.target.email.value
-      student.campusId = evt.target.campus.value
-      this.props.editStudent(student.id, student)
+        let updatedStudent = {
+        name: evt.target.name.value,
+        email: evt.target.email.value,
+        campusId: evt.target.campus.value
+      }
+      this.props.editStudent(student.id, updatedStudent)
       document.getElementById('edit-student-form').reset()}
     }>
       <label>Student Name: </label>
