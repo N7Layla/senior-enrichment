@@ -11,10 +11,12 @@ export function CampusDetail(props) {
   //let campuses = this.props.campuses.filter(campus => campus.id === paramId)
   const campus = props.campus;
   return (
-    <div className="single-campus">
+    <div className="campus-page">
     <EditCampus campus={campus} />
+    <div className="single-campus">
     <SingleCampus campus={campus} />
     <ul className="campus-students">
+    Current Students:
     {
       props.students.map(student =>
     (campus.id === student.campusId ? <li key={student.id}>
@@ -25,7 +27,7 @@ export function CampusDetail(props) {
       </button></p></li> : '')
     )
     }</ul>
-    <NewStudent />
+    <NewStudent givenCampus={campus} /></div>
     </div>
   )
 

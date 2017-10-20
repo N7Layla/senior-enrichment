@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 export function NewCampus(props) {
   return (
-    <div>
+    <div className="form-style">
     <h2>Add A Campus</h2>
     <form
       id="add-campus-form"
@@ -19,9 +19,9 @@ export function NewCampus(props) {
       document.getElementById('add-campus-form').reset()}
     }>
       <label>Campus Name: </label>
-        <input type="text" name="name" />
+        <input type="text" name="name" /><br />
         <label>Campus Description: </label>
-        <input type="text" name="description" />
+        <input type="text" name="description" /><br />
         <label>Campus Image: </label>
         <input type="text" name="image" />
        <input type="submit" value="Submit" />

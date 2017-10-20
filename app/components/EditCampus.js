@@ -14,7 +14,7 @@ export function EditCampus(props) {
         campus.name = evt.target.name.value
         campus.description = evt.target.description.value
         campus.image = evt.target.image.value
-        this.props.editCampus(campus.id, campus)
+        props.editCampus(campus.id, campus)
         document.getElementById('edit-campus-form').reset()}
       }>
         <label>Campus Name: </label>

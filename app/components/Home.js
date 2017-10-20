@@ -4,9 +4,9 @@ export default function Home() {
   return (
       <div className="home-boxes">
       <div className="home-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla aliquet lacus, lacinia pretium ex facilisis vel. Proin risus urna, viverra a leo semper, luctus faucibus est. Sed aliquet ex erat, vitae consequat ligula congue a. Mauris eu malesuada ipsum. Nulla vulputate lacus vel gravida porta. Curabitur sed enim vitae nibh congue semper eget in tellus. Fusce consequat ligula in placerat venenatis. Vestibulum lobortis, massa eu tincidunt iaculis, lacus mauris aliquam velit, eu dapibus urna orci vitae turpis. Phasellus faucibus suscipit dolor at egestas. Cras vel convallis mi, non hendrerit risus. Praesent varius ex a odio tristique faucibus.
+      <big><i>Welcome</i></big> to the Margaret Hamilton Interplanetary Academy of JavaScript! Margaret Heafield Hamilton is an American computer scientist, systems engineer, and business owner. She was Director of the Software Engineering Division of the MIT Instrumentation Laboratory, which developed on-board flight software for the Apollo space program. In 1986, she became the founder and CEO of Hamilton Technologies, Inc., in Cambridge, Massachusetts. The company was developed around the Universal Systems Language based on her paradigm of Development Before the Fact (DBTF) for systems and software design. <a href="https://en.wikipedia.org/wiki/Margaret_Hamilton_(scientist)">(Source)</a>
       </div>
-      <div className="home-img">image here</div>
+      <div className="home-img"><img src="/images/mulder.jpg" /></div>
       </div>
       )
 }

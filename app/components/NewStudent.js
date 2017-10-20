@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 export function NewStudent(props) {
   return (
-    <div>
+    <div className="form-style">
     <h2>Add A Student</h2>
     <form
       id="add-student-form"
@@ -19,9 +19,9 @@ export function NewStudent(props) {
       document.getElementById('add-student-form').reset()}
     }>
       <label>Student Name: </label>
-        <input required type="text" name="name" />
+        <input required type="text" name="name" /><br />
         <label>Student Email: </label>
-        <input required type="text" name="email" />
+        <input required type="text" name="email" /><br />
         <label>Student Campus: </label>
         <select required name="campus">
         {

@@ -8,9 +8,8 @@ export function Students(props) {
   const students = props.students;
   const campuses = props.campuses;
     return (
-    <div>
-    <div className="addCampus"><NewStudent /></div>
-     <section id="studentsContainer">
+    <div className="students-page">
+     <div className="students-flex">
       <h2>Students:</h2>
       {
         students.map(student =>
@@ -31,7 +30,8 @@ export function Students(props) {
         )
         )
       }
-     </section>
+     </div>
+      <div className="addStudent"><NewStudent /></div>
      </div>
     )
 }
